@@ -30,7 +30,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
         <a href="#top" className="group flex items-center gap-2.5" aria-label={`${PERSON.name}, home`}>
           <span aria-hidden className="flex h-8 w-8 items-center justify-center rounded-lg border border-line bg-surface font-display text-sm font-bold tracking-tight">
-            <span className="text-gold">A</span>
+            <span className="text-clay">A</span>
             <span>R</span>
           </span>
           <span className="font-display text-[15px] font-medium tracking-tight">{PERSON.name}</span>
@@ -47,7 +47,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href={CTA.href}
-            className="hidden rounded-full bg-gold px-4 py-2 text-sm font-semibold text-night transition hover:bg-gold-deep sm:inline-flex"
+            className="hidden rounded-full bg-clay px-4 py-2 text-sm font-semibold text-night transition hover:bg-clay-deep sm:inline-flex"
           >
             {CTA.label}
           </a>

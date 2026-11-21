@@ -1,12 +1,13 @@
 import Image from "next/image";
+import { ConceptShowcase } from "@/components/ui/ConceptShowcase";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { Header } from "@/components/ui/Header";
 import { HeroStage } from "@/components/ui/HeroStage";
 import { RevealObserver } from "@/components/ui/RevealObserver";
+import { Tilt } from "@/components/ui/Tilt";
 import {
   CTA,
   EXPERIENCE,
-  LEGACY_PROJECT,
   NAV,
   OVERVIEW,
   PERSON,
@@ -29,7 +30,7 @@ const VALUES = [
 export default function Home() {
   return (
     <>
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-night">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-clay focus:px-4 focus:py-2 focus:text-night">
         Skip to content
       </a>
       <Header />
@@ -50,14 +51,14 @@ export default function Home() {
 }
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">{children}</p>;
+  return <p className="text-xs font-semibold uppercase tracking-[0.22em] text-tan">{children}</p>;
 }
 
 function PrimaryButton({ className = "" }: { className?: string }) {
   return (
     <a
       href={CTA.href}
-      className={`inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 font-semibold text-night shadow-[0_8px_30px_-8px_rgb(242_182_94/0.6)] transition hover:bg-gold-deep ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3.5 font-semibold text-night shadow-[0_8px_30px_-8px_rgb(199_131_74/0.6)] transition hover:bg-clay-deep ${className}`}
     >
       {CTA.label}
       <span aria-hidden>→</span>
@@ -69,13 +70,13 @@ function Hero() {
   const kaylee = TESTIMONIALS[0];
   return (
     <section id="top" className="grain relative overflow-hidden pt-24 sm:pt-28 lg:pt-32">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_75%_30%,rgb(155_123_255/0.16),transparent_70%),radial-gradient(40%_40%_at_10%_10%,rgb(242_182_94/0.08),transparent_70%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_75%_35%,rgb(199_131_74/0.13),transparent_70%),radial-gradient(45%_45%_at_5%_0%,rgb(111_133_98/0.16),transparent_70%)]" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-24">
         <div>
           <Eyebrow>Web design &amp; development for local businesses</Eyebrow>
           <h1 className="mt-4 font-display text-[2.6rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[4.4rem]">
-            Websites that bring local businesses more <span className="text-gold">bookings</span> and{" "}
-            <span className="text-gold">sales</span>.
+            Websites that bring local businesses more <span className="text-clay">bookings</span> and{" "}
+            <span className="text-clay">sales</span>.
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-mist">
             I&apos;m {PERSON.name}, a full stack engineer who designs and builds fast, interactive sites, from 3D
@@ -87,7 +88,7 @@ function Hero() {
               See my work
             </a>
           </div>
-          <figure className="mt-10 flex max-w-md items-start gap-3 border-l-2 border-gold/60 pl-4">
+          <figure className="mt-10 flex max-w-md items-start gap-3 border-l-2 border-clay/60 pl-4">
             <Image src={kaylee.photo} alt="" width={40} height={40} className="mt-0.5 h-10 w-10 shrink-0 rounded-full object-cover" />
             <div>
               <blockquote className="text-[15px] leading-snug text-fog/90">
@@ -111,7 +112,7 @@ function ValueStrip() {
       <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-3 px-4 py-6 text-sm text-mist sm:px-6 lg:grid-cols-4">
         {VALUES.map((v) => (
           <li key={v} className="flex items-center gap-2.5">
-            <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+            <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-sage" />
             {v}
           </li>
         ))}
@@ -143,7 +144,17 @@ function Work() {
           <ProjectFeature key={p.slug} project={p} flip={i % 2 === 1} />
         ))}
       </div>
-      <LegacyProject />
+      <div className="mt-32">
+        <div className="reveal max-w-2xl">
+          <Eyebrow>Concept sites</Eyebrow>
+          <h3 className="mt-3 font-display text-3xl font-bold tracking-[-0.02em] sm:text-4xl">Five local businesses, reimagined</h3>
+          <p className="mt-4 text-lg leading-relaxed text-mist">
+            Unsolicited concepts for Albuquerque and Rio Rancho businesses, each built around the one thing their current
+            site makes hard: booking, buying, or finding the door.
+          </p>
+        </div>
+        <ConceptShowcase />
+      </div>
     </section>
   );
 }
@@ -165,7 +176,9 @@ function ProjectFeature({ project: p, flip }: { project: Project; flip: boolean 
   return (
     <article id={`work-${p.slug}`} className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-12 lg:gap-12">
       <div className={`reveal relative lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
-        <BrowserFrame src={p.image.src} alt={p.image.alt} />
+        <Tilt className="rounded-2xl" max={5}>
+          <BrowserFrame src={p.image.src} alt={p.image.alt} />
+        </Tilt>
         {p.phone && (
           <div className={`absolute -bottom-8 hidden w-[23%] overflow-hidden rounded-[1.4rem] border-4 border-night-2 shadow-2xl shadow-black/60 sm:block ${flip ? "-left-4" : "-right-4"}`}>
             <Image src={p.phone.src} alt={p.phone.alt} width={540} height={1169} sizes="160px" className="h-auto w-full" />
@@ -179,7 +192,7 @@ function ProjectFeature({ project: p, flip }: { project: Project; flip: boolean 
         <ul className="mt-6 grid gap-3">
           {p.built.map((b) => (
             <li key={b} className="flex gap-3 text-[15px] leading-relaxed">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sage" />
               {b}
             </li>
           ))}
@@ -198,7 +211,7 @@ function ProjectFeature({ project: p, flip }: { project: Project; flip: boolean 
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-semibold text-gold underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-2 font-semibold text-clay underline-offset-4 hover:underline"
             >
               {l.label} <span aria-hidden>↗</span>
               <span className="sr-only">(opens in a new tab)</span>
@@ -207,27 +220,6 @@ function ProjectFeature({ project: p, flip }: { project: Project; flip: boolean 
         </div>
       </div>
     </article>
-  );
-}
-
-function LegacyProject() {
-  const p = LEGACY_PROJECT;
-  return (
-    <div className="reveal mt-28 grid items-center gap-8 rounded-3xl border border-line bg-night-2 p-6 sm:p-8 md:grid-cols-[1fr_1.1fr]">
-      <Image src={p.image.src} alt={p.image.alt} width={1200} height={677} sizes="(min-width: 768px) 480px, 100vw" className="h-auto w-full rounded-xl border border-white/5" />
-      <div>
-        <p className="text-sm text-mist">Web app · Coding Temple capstone</p>
-        <h3 className="mt-2 font-display text-2xl font-bold tracking-[-0.02em]">{p.name}</h3>
-        <p className="mt-3 leading-relaxed text-mist">{p.summary}</p>
-        <ul className="mt-5 flex flex-wrap gap-2" aria-label="Built with">
-          {p.tags.map((t) => (
-            <li key={t} className="rounded-full border border-line px-3 py-1 text-xs text-mist">
-              #{t}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
   );
 }
 
@@ -242,8 +234,8 @@ function Services() {
         />
         <ul className="mt-14 grid gap-4 sm:grid-cols-2">
           {SERVICES.map((s, i) => (
-            <li key={s.title} className="reveal group rounded-3xl border border-line bg-night p-7 transition hover:border-gold/40 sm:p-8">
-              <span className="font-display text-sm font-medium text-gold">0{i + 1}</span>
+            <li key={s.title} className="reveal group rounded-3xl border border-line bg-night p-7 transition hover:border-clay/40 sm:p-8">
+              <span className="font-display text-sm font-medium text-clay">0{i + 1}</span>
               <h3 className="mt-6 font-display text-2xl font-bold tracking-[-0.02em]">{s.title}</h3>
               <p className="mt-3 leading-relaxed text-mist">{s.body}</p>
             </li>
@@ -277,7 +269,7 @@ function Process() {
           </li>
         ))}
       </ol>
-      <div className="reveal mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl bg-gradient-to-br from-gold/15 via-violet/10 to-transparent p-8 ring-1 ring-gold/20 sm:flex-row sm:items-center sm:p-10">
+      <div className="reveal mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl bg-gradient-to-br from-clay/15 via-sage/10 to-transparent p-8 ring-1 ring-clay/20 sm:flex-row sm:items-center sm:p-10">
         <div>
           <p className="font-display text-2xl font-bold tracking-[-0.02em] sm:text-3xl">Curious what your site could do better?</p>
           <p className="mt-2 text-mist">Start with a free review of your current site.</p>
@@ -302,7 +294,7 @@ function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <figure key={t.name} className="reveal flex flex-col justify-between rounded-3xl border border-line bg-night p-7 sm:p-9">
               <blockquote className="text-lg leading-relaxed">
-                <span aria-hidden className="mb-4 block font-display text-5xl leading-none text-gold">&ldquo;</span>
+                <span aria-hidden className="mb-4 block font-display text-5xl leading-none text-clay">&ldquo;</span>
                 {t.quote}
               </blockquote>
               <figcaption className="mt-8 flex items-center gap-3">
@@ -340,16 +332,16 @@ function About() {
           </ul>
         </div>
         <div>
-          <h3 className="reveal text-sm font-semibold uppercase tracking-[0.18em] text-fog/80">Experience</h3>
+          <h3 className="reveal text-sm font-semibold uppercase tracking-[0.18em] text-fog/80">Web work</h3>
           <ol className="mt-6 border-l border-line">
             {EXPERIENCE.map((job) => (
               <li key={job.title} className="reveal relative pb-10 pl-7 last:pb-0">
-                <span aria-hidden className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-gold" />
+                <span aria-hidden className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-clay" />
                 <p className="text-sm text-mist">{job.dates}</p>
                 <h4 className="mt-1 font-display text-xl font-bold tracking-[-0.01em]">{job.title}</h4>
                 <p className="text-mist">{job.company}</p>
                 <details className="group mt-3">
-                  <summary className="cursor-pointer list-none text-sm font-medium text-gold">
+                  <summary className="cursor-pointer list-none text-sm font-medium text-clay">
                     <span className="group-open:hidden">Show details</span>
                     <span className="hidden group-open:inline">Hide details</span>
                   </summary>
@@ -374,7 +366,7 @@ function About() {
 function Contact() {
   return (
     <section id="contact" className="grain relative overflow-hidden border-t border-line">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_0%_100%,rgb(242_182_94/0.12),transparent_70%),radial-gradient(40%_50%_at_100%_0%,rgb(155_123_255/0.12),transparent_70%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_0%_100%,rgb(199_131_74/0.12),transparent_70%),radial-gradient(40%_50%_at_100%_0%,rgb(111_133_98/0.14),transparent_70%)]" />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-32">
         <div className="reveal">
           <Eyebrow>Get in touch</Eyebrow>
@@ -407,7 +399,7 @@ function Footer() {
               {n.label}
             </a>
           ))}
-          <a href={CTA.href} className="font-semibold text-gold hover:underline">
+          <a href={CTA.href} className="font-semibold text-clay hover:underline">
             {CTA.label}
           </a>
         </nav>

@@ -32,7 +32,7 @@ export function HeroStage() {
     <div className="relative aspect-[16/11] w-full lg:aspect-[1/0.92]">
       <div
         aria-hidden
-        className="absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(242_182_94/0.22),rgb(155_123_255/0.12)_55%,transparent)] blur-2xl"
+        className="absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(199_131_74/0.22),rgb(199_131_74/0.06)_55%,transparent)] blur-2xl"
       />
       <div className={`absolute inset-0 transition-opacity duration-700 ${use3D && ready ? "opacity-0" : "opacity-100"}`}>
         <Collage />

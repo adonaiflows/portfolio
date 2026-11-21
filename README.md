@@ -14,3 +14,4 @@ Next.js (App Router) + TypeScript + Tailwind, with a lazy-loaded react-three-fib
 - Pricing or packages (none shown until confirmed).
 - Analytics: the form pushes a `generate_lead` event to `dataLayer`; connect Vercel Analytics or GA4.
 - A headshot for the About section, if wanted.
+- Live links for the five concept sites (add `href` in `CONCEPTS` once each is on Vercel).

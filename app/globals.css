@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-night: #0a0a10;
-  --color-night-2: #11111a;
-  --color-surface: #161622;
-  --color-line: rgb(255 255 255 / 0.09);
-  --color-fog: #ecebf3;
-  --color-mist: #a7a5b8;
-  --color-gold: #f2b65e;
-  --color-gold-deep: #d9963a;
-  --color-violet: #9b7bff;
+  --color-night: #15120e;
+  --color-night-2: #1c1813;
+  --color-surface: #262019;
+  --color-line: rgb(255 236 210 / 0.11);
+  --color-fog: #ffffff;
+  --color-mist: #cbbda8;
+  --color-clay: #c7834a;
+  --color-clay-deep: #b0703a;
+  --color-sage: #6f8562;
+  --color-tan: #b8925f;
   --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
@@ -30,10 +31,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-::selection { background: var(--color-gold); color: var(--color-night); }
+::selection { background: var(--color-clay); color: var(--color-night); }
 
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-clay);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -56,3 +57,16 @@ section[id] { scroll-margin-top: 84px; }
 @keyframes drift { 0%,100% { transform: translate3d(0,0,0) rotate(var(--r,0deg)); } 50% { transform: translate3d(0,-10px,0) rotate(var(--r,0deg)); } }
 .drift { animation: drift 7s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .drift { animation: none; } }
+
+/* Soft highlight that follows the pointer on tilted cards. */
+.tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s;
+  background: radial-gradient(500px circle at var(--gx, 50%) var(--gy, 50%), rgb(255 255 255 / 0.10), transparent 45%);
+}
+.tilt:hover::after { opacity: 1; }

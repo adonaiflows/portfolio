@@ -96,17 +96,59 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-// Verbatim from the previous portfolio.
-export const LEGACY_PROJECT = {
-  name: "Blissful Balance Yoga",
-  summary:
-    "Web-based platform that allows users to create, retrieve, update, and delete a user and posts. Utilizes user authentication and authorization to ensure secure access to the platform.",
-  tags: ["react", "python", "flask"],
-  image: {
-    src: "/work/blissful-balance.webp",
-    alt: "Blissful Balance Yoga app showing a feed of community posts over a beach photo",
-  },
+export type Concept = {
+  slug: string;
+  name: string;
+  place: string;
+  idea: string;
+  image: string;
+  texture: string;
+  href?: string; // TODO: add each Vercel demo link once Adonai imports adonaiflows/prospect-demos
 };
+
+// Five one-page concept sites for local businesses that are not clients (adonaiflows/prospect-demos).
+export const CONCEPTS: Concept[] = [
+  {
+    slug: "unwind-yoga",
+    name: "Unwind Yoga",
+    place: "Yoga studio · Albuquerque",
+    idea: "A Book a class button on the first screen and a three-step path for first-time students.",
+    image: "/work/unwind-yoga.webp",
+    texture: "/textures/unwind-yoga.webp",
+  },
+  {
+    slug: "whispering-bean",
+    name: "Whispering Bean",
+    place: "Coffee roaster · Albuquerque & Rio Rancho",
+    idea: "Shop our beans up front, with both shops, hours and pickup or shipping clear on a phone.",
+    image: "/work/whispering-bean.webp",
+    texture: "/textures/whispering-bean.webp",
+  },
+  {
+    slug: "rock-star-coffee",
+    name: "Rock Star Coffee",
+    place: "Coffee roaster · Rio Rancho",
+    idea: "A bold storefront that leads with flat-rate shipping, free pickup and subscriptions.",
+    image: "/work/rock-star-coffee.webp",
+    texture: "/textures/rock-star-coffee.webp",
+  },
+  {
+    slug: "santosha-skin",
+    name: "Santosha Skin",
+    place: "Holistic esthetics · Albuquerque",
+    idea: "A calm, grounded site that books treatments and sells continuing-education courses.",
+    image: "/work/santosha-skin.webp",
+    texture: "/textures/santosha-skin.webp",
+  },
+  {
+    slug: "mocha-mudd",
+    name: "Mocha Mudd",
+    place: "Neighborhood coffee · Rio Rancho",
+    idea: "Hours, directions and order-ahead in one tap for commuters on the way to work.",
+    image: "/work/mocha-mudd.webp",
+    texture: "/textures/mocha-mudd.webp",
+  },
+];
 
 export const SERVICES = [
   {
@@ -168,15 +210,40 @@ export const TESTIMONIALS = [
 export const OVERVIEW =
   "In the dynamic realm of software development, my expertise in Python, React.js, and building RESTful APIs fuels innovation. With meticulous debugging skills honed through hands-on experience, I swiftly navigate challenges across the full stack. Versatile and collaborative, I facilitate cohesive teamwork, driving the realization of robust, scalable software solutions that exceed expectations.";
 
-// Verbatim from the previous portfolio.
+// Web work timeline. Coding Temple and Adonai & Kaylee lines are verbatim from the previous portfolio.
 export const EXPERIENCE = [
+  {
+    title: "Five concept sites for local businesses",
+    company: "Unwind Yoga, Whispering Bean, Rock Star Coffee, Santosha Skin, Mocha Mudd",
+    dates: "November 2026",
+    points: [
+      "Audited each business's current site and built a one-page concept that fixes what was costing them customers.",
+      "Fast, phone-first Next.js pages with one clear call to action each: book, shop, or get directions.",
+    ],
+  },
+  {
+    title: "Concept redesign",
+    company: "Yes Organic Boutique & Spa",
+    dates: "October 2026 - November 2026",
+    points: [
+      "Multi-page Next.js site with a 3D hero, a Book Now chooser for the spa and nail boutique, and a 97-product shop page.",
+    ],
+  },
+  {
+    title: "Website & Shopify theme",
+    company: "Sacred Creations",
+    dates: "October 2026 - Present",
+    points: [
+      "Designed and built the Liquid Gold site around the brand's own photography, with a drag-to-turn bottle viewer.",
+      "Ported it to a custom Shopify theme that now runs the live store.",
+    ],
+  },
   {
     title: "Software Engineer Intern",
     company: "Coding Temple",
     dates: "February 2024 - Present",
     points: [
       "Developed and maintained robust, scalable web applications utilizing a full stack of technologies including HTML, Python, React, and Flask.",
-      "Leveraged Python to design and implement RESTful APIs, facilitating communication between the front-end and back-end systems.",
       "Created dynamic and responsive UIs using React, focusing on enhancing user engagement and interaction, while implementing server-side logic and routing using Flask, ensuring smooth data flow and efficient request handling.",
     ],
   },
@@ -184,22 +251,7 @@ export const EXPERIENCE = [
     title: "Facilitator | CEO",
     company: "Adonai & Kaylee | Holistic Wellness",
     dates: "July 2022 - Present",
-    points: [
-      "Juggled multiple roles to ensure the seamless operation of the establishment.",
-      "Focused on client satisfaction, I oversaw operations, led teams, and formed strategic partnerships.",
-      "Enhanced our digital presence through website development, optimizing user experience and operations.",
-      "Honed my skills in project management, problem-solving, and adaptability.",
-    ],
-  },
-  {
-    title: "Case Analyst II",
-    company: "Cognosante MVH, LLC",
-    dates: "January 2018 - August 2022",
-    points: [
-      "Identifying and remediating consumer data issues related to health insurance exchange coverage.",
-      "Apply appropriate research and technical knowledge to resolve outstanding issues in a timely and accurate manner.",
-      "Responsible for making outbound calls to gather additional information as well as inform the consumer of the disposition of their care.",
-    ],
+    points: ["Enhanced our digital presence through website development, optimizing user experience and operations."],
   },
 ];
 

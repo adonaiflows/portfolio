@@ -54,10 +54,10 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div role="status" className="rounded-2xl border border-gold/40 bg-gold/10 p-8">
+      <div role="status" className="rounded-2xl border border-clay/40 bg-clay/10 p-8">
         <p className="font-display text-2xl font-medium">Thanks, your message is on its way.</p>
         <p className="mt-2 text-mist">I&apos;ll get back to you as soon as possible, usually within a day.</p>
-        <button type="button" onClick={() => setStatus("idle")} className="mt-6 text-sm text-gold underline underline-offset-4">
+        <button type="button" onClick={() => setStatus("idle")} className="mt-6 text-sm text-clay underline underline-offset-4">
           Send another message
         </button>
       </div>
@@ -65,7 +65,7 @@ export function ContactForm() {
   }
 
   const field =
-    "mt-2 w-full rounded-xl border border-line bg-night-2 px-4 py-3 text-fog placeholder:text-mist/60 outline-none transition focus:border-gold/70 focus:ring-2 focus:ring-gold/20";
+    "mt-2 w-full rounded-xl border border-line bg-night-2 px-4 py-3 text-fog placeholder:text-mist/60 outline-none transition focus:border-clay/70 focus:ring-2 focus:ring-clay/20";
 
   return (
     <form onSubmit={onSubmit} className="grid gap-5">
@@ -97,7 +97,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="rounded-full bg-gold px-7 py-3.5 font-semibold text-night transition hover:bg-gold-deep disabled:opacity-60"
+          className="rounded-full bg-clay px-7 py-3.5 font-semibold text-night transition hover:bg-clay-deep disabled:opacity-60"
         >
           {status === "sending" ? "Sending…" : "Send message"}
         </button>
