@@ -69,12 +69,12 @@ function PrimaryButton({ className = "" }: { className?: string }) {
 function Hero() {
   const kaylee = TESTIMONIALS[0];
   return (
-    <section id="top" className="grain relative overflow-hidden pt-24 sm:pt-28 lg:pt-32">
+    <section id="top" className="grain relative overflow-x-clip pt-24 sm:pt-28 lg:h-[240vh] lg:pt-0">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_75%_35%,rgb(199_131_74/0.13),transparent_70%),radial-gradient(45%_45%_at_5%_0%,rgb(111_133_98/0.16),transparent_70%)]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-24">
-        <div>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 sm:px-6 lg:sticky lg:top-0 lg:h-screen lg:grid-cols-[0.95fr_1.1fr] lg:gap-4 lg:pb-0 lg:pt-16">
+        <div className="relative z-10">
           <Eyebrow>Web design &amp; development for local businesses</Eyebrow>
-          <h1 className="mt-4 font-display text-[2.6rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[4.4rem]">
+          <h1 className="mt-4 font-display text-[2.6rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[4.1rem]">
             Websites that bring local businesses more <span className="text-clay">bookings</span> and{" "}
             <span className="text-clay">sales</span>.
           </h1>
