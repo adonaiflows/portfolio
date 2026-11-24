@@ -84,13 +84,13 @@ export function ContactForm() {
         <input name="business" autoComplete="url" className={field} placeholder="yourbusiness.com" />
       </label>
       <label className="block text-sm font-medium">
-        What do you need?
+        What do you want more of?
         <textarea
           name="message"
           required
           rows={4}
           className={field}
-          placeholder="A new site, an online store, more bookings…"
+          placeholder="More online orders, more bookings, a site that looks as good as my shop…"
         />
       </label>
       <div className="flex flex-wrap items-center gap-4">
@@ -99,7 +99,7 @@ export function ContactForm() {
           disabled={status === "sending"}
           className="rounded-full bg-clay px-7 py-3.5 font-semibold text-night transition hover:bg-clay-deep disabled:opacity-60"
         >
-          {status === "sending" ? "Sending…" : "Send message"}
+          {status === "sending" ? "Sending…" : "Send me my free mockup"}
         </button>
         {status === "error" && (
           <p role="alert" className="text-sm text-red-300">

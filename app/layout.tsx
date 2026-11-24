@@ -36,10 +36,7 @@ export const viewport: Viewport = { themeColor: "#15120e" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${inter.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
-      </head>
+    <html lang="en" className={`${bricolage.variable} ${inter.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );

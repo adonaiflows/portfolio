@@ -16,12 +16,14 @@ export const PERSON = {
 
 export const NAV = [
   { href: "#work", label: "Work" },
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
+  { href: "#process", label: "How it works" },
+  { href: "#faq", label: "FAQ" },
   { href: "#about", label: "About" },
 ];
 
-export const CTA = { href: "#contact", label: "Start a project" };
+// One offer, repeated everywhere: a free homepage mockup before any money changes hands.
+// TODO(Adonai): confirm you're happy offering this free mockup publicly.
+export const CTA = { href: "#contact", label: "Get a free mockup" };
 
 // Contact form delivery (same EmailJS service the previous portfolio used; these are public client-side ids).
 export const EMAILJS = {
@@ -100,53 +102,60 @@ export type Concept = {
   slug: string;
   name: string;
   place: string;
-  idea: string;
-  image: string;
-  texture: string;
+  before: string; // what we saw on Nov 22, 2026 (Google Maps + their current site)
+  after: string;
+  image: { src: string; alt: string };
+  phone: { src: string; alt: string };
   href?: string; // TODO: add each Vercel demo link once Adonai imports adonaiflows/prospect-demos
 };
 
-// Five one-page concept sites for local businesses that are not clients (adonaiflows/prospect-demos).
+// Five concept sites for local businesses that are not clients (adonaiflows/prospect-demos).
+// "Before" facts come from the demos' README, checked on Google Maps and the live sites on Nov 22, 2026.
 export const CONCEPTS: Concept[] = [
   {
-    slug: "unwind-yoga",
-    name: "Unwind Yoga",
-    place: "Yoga studio · Albuquerque",
-    idea: "A Book a class button on the first screen and a three-step path for first-time students.",
-    image: "/work/unwind-yoga.webp",
-    texture: "/textures/unwind-yoga.webp",
+    slug: "duggans-coffee",
+    name: "Duggan's Coffee",
+    place: "Coffee & breakfast · Albuquerque (UNM)",
+    before: "No website, despite 390+ Google reviews.",
+    after: "Order ahead from a phone, pick a pickup time, and walk in to a hot cup.",
+    image: { src: "/work/duggans-coffee-order-d.webp", alt: "Duggan's Coffee concept order page with the headline Skip the line. Keep the plate." },
+    phone: { src: "/work/duggans-coffee-p.webp", alt: "Duggan's Coffee concept home page on a phone" },
   },
   {
-    slug: "whispering-bean",
-    name: "Whispering Bean",
-    place: "Coffee roaster · Albuquerque & Rio Rancho",
-    idea: "Shop our beans up front, with both shops, hours and pickup or shipping clear on a phone.",
-    image: "/work/whispering-bean.webp",
-    texture: "/textures/whispering-bean.webp",
+    slug: "daily-rituals",
+    name: "Daily Rituals",
+    place: "Café & gift shop · Albuquerque (Nob Hill)",
+    before: "No website for a new café rated 4.9 on Google.",
+    after: "Order-ahead coffee plus a separate gift-shop bag, in the café's real colors and photos.",
+    image: { src: "/work/daily-rituals-d.webp", alt: "Daily Rituals concept home page with the headline A daily ritual, poured slow" },
+    phone: { src: "/work/daily-rituals-order-p.webp", alt: "Daily Rituals concept order page on a phone" },
   },
   {
-    slug: "rock-star-coffee",
-    name: "Rock Star Coffee",
-    place: "Coffee roaster · Rio Rancho",
-    idea: "A bold storefront that leads with flat-rate shipping, free pickup and subscriptions.",
-    image: "/work/rock-star-coffee.webp",
-    texture: "/textures/rock-star-coffee.webp",
+    slug: "santa-cecilia",
+    name: "Santa Cecilia",
+    place: "Patio café · Albuquerque (Old Town)",
+    before: "No website and no phone number listed anywhere.",
+    after: "Hours, directions and order-ahead pickup, one tap from the first screen.",
+    image: { src: "/work/santa-cecilia-d.webp", alt: "Santa Cecilia concept home page with the headline Coffee on the patio in Old Town" },
+    phone: { src: "/work/santa-cecilia-order-p.webp", alt: "Santa Cecilia concept order page on a phone" },
   },
   {
-    slug: "santosha-skin",
-    name: "Santosha Skin",
-    place: "Holistic esthetics · Albuquerque",
-    idea: "A calm, grounded site that books treatments and sells continuing-education courses.",
-    image: "/work/santosha-skin.webp",
-    texture: "/textures/santosha-skin.webp",
+    slug: "banya-spa",
+    name: "Massage & Banya Spa",
+    place: "Banya & massage · Santa Fe",
+    before: "A default WordPress site still showing pandemic notices.",
+    after: "A calm walkthrough of how a session works, so first-timers feel ready to call and book.",
+    image: { src: "/work/banya-spa-d.webp", alt: "Banya Spa concept home page with the headline Heat, cold, rest. The banya, in Santa Fe." },
+    phone: { src: "/work/banya-spa-p.webp", alt: "Banya Spa concept home page on a phone" },
   },
   {
-    slug: "mocha-mudd",
-    name: "Mocha Mudd",
-    place: "Neighborhood coffee · Rio Rancho",
-    idea: "Hours, directions and order-ahead in one tap for commuters on the way to work.",
-    image: "/work/mocha-mudd.webp",
-    texture: "/textures/mocha-mudd.webp",
+    slug: "x-tactics",
+    name: "X-Tactics",
+    place: "Training & performance · Rio Rancho",
+    before: "A broken template site with no secure connection.",
+    after: "A free-consult button up front and memberships laid out plainly.",
+    image: { src: "/work/x-tactics-d.webp", alt: "X-Tactics concept home page with the headline Train with 27 years of military and law-enforcement experience" },
+    phone: { src: "/work/x-tactics-p.webp", alt: "X-Tactics concept home page on a phone" },
   },
 ];
 
@@ -174,8 +183,8 @@ export const SKILLS = ["Full Stack Developer", "API Developer", "Database Manage
 
 export const PROCESS = [
   {
-    title: "A free call and site review",
-    body: "We talk through your business and your current site, and I show you where visitors drop off before they book or buy.",
+    title: "Free homepage mockup",
+    body: "Tell me about your business. I design your new homepage with your real photos and details, and you see it before you spend anything.",
   },
   {
     title: "Design and build, in the open",
@@ -187,6 +196,34 @@ export const PROCESS = [
   },
 ];
 // TODO: pricing / packages. Add only real numbers Adonai confirms.
+
+// Answers to the usual objections. TODO(Adonai): confirm each answer matches how you work.
+export const FAQ = [
+  {
+    q: "What does a website cost?",
+    a: "It depends on the pages and features you need, like online ordering or booking. You get a clear quote before any work starts, and the homepage mockup is free either way.",
+  },
+  {
+    q: "Is the mockup really free?",
+    a: "Yes. If you don't love it, you walk away and owe nothing.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Your mockup comes first. After you say yes, you get a live preview link and watch the site come together, so you always know where things stand.",
+  },
+  {
+    q: "Can customers order or book online?",
+    a: "Yes. That's the point of most sites I build: order-ahead with pickup times for cafés, and Book Now buttons wired to the booking tool you already use.",
+  },
+  {
+    q: "Do I own the site?",
+    a: "Yes. Your domain and your site are yours.",
+  },
+  {
+    q: "What do you need from me?",
+    a: "A short conversation, your logo if you have one, and any photos you like. I can work from what's already on your Google listing to start.",
+  },
+];
 
 // Verbatim from the previous portfolio.
 export const TESTIMONIALS = [
@@ -214,11 +251,11 @@ export const OVERVIEW =
 export const EXPERIENCE = [
   {
     title: "Five concept sites for local businesses",
-    company: "Unwind Yoga, Whispering Bean, Rock Star Coffee, Santosha Skin, Mocha Mudd",
+    company: "Duggan's Coffee, Daily Rituals, Santa Cecilia, Massage & Banya Spa, X-Tactics",
     dates: "November 2026",
     points: [
-      "Audited each business's current site and built a one-page concept that fixes what was costing them customers.",
-      "Fast, phone-first Next.js pages with one clear call to action each: book, shop, or get directions.",
+      "Checked each business on Google Maps and on its current site, then built a concept that fixes what was costing them customers.",
+      "Online ordering with pickup times for the three cafés; clear booking paths for the spa and the gym.",
     ],
   },
   {
