@@ -16,12 +16,14 @@ export const PERSON = {
 
 export const NAV = [
   { href: "#work", label: "Work" },
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
+  { href: "#process", label: "How it works" },
+  { href: "#faq", label: "FAQ" },
   { href: "#about", label: "About" },
 ];
 
-export const CTA = { href: "#contact", label: "Start a project" };
+// One offer, repeated everywhere: a free homepage mockup before any money changes hands.
+// TODO(Adonai): confirm you're happy offering this free mockup publicly.
+export const CTA = { href: "#contact", label: "Get a free mockup" };
 
 // Contact form delivery (same EmailJS service the previous portfolio used; these are public client-side ids).
 export const EMAILJS = {
@@ -96,17 +98,66 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-// Verbatim from the previous portfolio.
-export const LEGACY_PROJECT = {
-  name: "Blissful Balance Yoga",
-  summary:
-    "Web-based platform that allows users to create, retrieve, update, and delete a user and posts. Utilizes user authentication and authorization to ensure secure access to the platform.",
-  tags: ["react", "python", "flask"],
-  image: {
-    src: "/work/blissful-balance.webp",
-    alt: "Blissful Balance Yoga app showing a feed of community posts over a beach photo",
-  },
+export type Concept = {
+  slug: string;
+  name: string;
+  place: string;
+  before: string; // what we saw on Nov 22, 2026 (Google Maps + their current site)
+  after: string;
+  image: { src: string; alt: string };
+  phone: { src: string; alt: string };
+  href?: string; // TODO: add each Vercel demo link once Adonai imports adonaiflows/prospect-demos
 };
+
+// Five concept sites for local businesses that are not clients (adonaiflows/prospect-demos).
+// "Before" facts come from the demos' README, checked on Google Maps and the live sites on Nov 22, 2026.
+export const CONCEPTS: Concept[] = [
+  {
+    slug: "duggans-coffee",
+    name: "Duggan's Coffee",
+    place: "Coffee & breakfast · Albuquerque (UNM)",
+    before: "No website, despite 390+ Google reviews.",
+    after: "Order ahead from a phone, pick a pickup time, and walk in to a hot cup.",
+    image: { src: "/work/duggans-coffee-order-d.webp", alt: "Duggan's Coffee concept order page with the headline Skip the line. Keep the plate." },
+    phone: { src: "/work/duggans-coffee-p.webp", alt: "Duggan's Coffee concept home page on a phone" },
+  },
+  {
+    slug: "daily-rituals",
+    name: "Daily Rituals",
+    place: "Café & gift shop · Albuquerque (Nob Hill)",
+    before: "No website for a new café rated 4.9 on Google.",
+    after: "Order-ahead coffee plus a separate gift-shop bag, in the café's real colors and photos.",
+    image: { src: "/work/daily-rituals-d.webp", alt: "Daily Rituals concept home page with the headline A daily ritual, poured slow" },
+    phone: { src: "/work/daily-rituals-order-p.webp", alt: "Daily Rituals concept order page on a phone" },
+  },
+  {
+    slug: "santa-cecilia",
+    name: "Santa Cecilia",
+    place: "Patio café · Albuquerque (Old Town)",
+    before: "No website and no phone number listed anywhere.",
+    after: "Hours, directions and order-ahead pickup, one tap from the first screen.",
+    image: { src: "/work/santa-cecilia-d.webp", alt: "Santa Cecilia concept home page with the headline Coffee on the patio in Old Town" },
+    phone: { src: "/work/santa-cecilia-order-p.webp", alt: "Santa Cecilia concept order page on a phone" },
+  },
+  {
+    slug: "banya-spa",
+    name: "Massage & Banya Spa",
+    place: "Banya & massage · Santa Fe",
+    before: "A default WordPress site still showing pandemic notices.",
+    after: "A calm walkthrough of how a session works, so first-timers feel ready to call and book.",
+    image: { src: "/work/banya-spa-d.webp", alt: "Banya Spa concept home page with the headline Heat, cold, rest. The banya, in Santa Fe." },
+    phone: { src: "/work/banya-spa-p.webp", alt: "Banya Spa concept home page on a phone" },
+  },
+  {
+    slug: "x-tactics",
+    name: "X-Tactics",
+    place: "Training & performance · Rio Rancho",
+    before: "A broken template site with no secure connection.",
+    after: "A free-consult button up front and memberships laid out plainly.",
+    image: { src: "/work/x-tactics-d.webp", alt: "X-Tactics concept home page with the headline Train with 27 years of military and law-enforcement experience" },
+    phone: { src: "/work/x-tactics-p.webp", alt: "X-Tactics concept home page on a phone" },
+  },
+];
 
 export const SERVICES = [
   {
@@ -132,8 +183,8 @@ export const SKILLS = ["Full Stack Developer", "API Developer", "Database Manage
 
 export const PROCESS = [
   {
-    title: "A free call and site review",
-    body: "We talk through your business and your current site, and I show you where visitors drop off before they book or buy.",
+    title: "Free homepage mockup",
+    body: "Tell me about your business. I design your new homepage with your real photos and details, and you see it before you spend anything.",
   },
   {
     title: "Design and build, in the open",
@@ -145,6 +196,34 @@ export const PROCESS = [
   },
 ];
 // TODO: pricing / packages. Add only real numbers Adonai confirms.
+
+// Answers to the usual objections. TODO(Adonai): confirm each answer matches how you work.
+export const FAQ = [
+  {
+    q: "What does a website cost?",
+    a: "It depends on the pages and features you need, like online ordering or booking. You get a clear quote before any work starts, and the homepage mockup is free either way.",
+  },
+  {
+    q: "Is the mockup really free?",
+    a: "Yes. If you don't love it, you walk away and owe nothing.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Your mockup comes first. After you say yes, you get a live preview link and watch the site come together, so you always know where things stand.",
+  },
+  {
+    q: "Can customers order or book online?",
+    a: "Yes. That's the point of most sites I build: order-ahead with pickup times for cafés, and Book Now buttons wired to the booking tool you already use.",
+  },
+  {
+    q: "Do I own the site?",
+    a: "Yes. Your domain and your site are yours.",
+  },
+  {
+    q: "What do you need from me?",
+    a: "A short conversation, your logo if you have one, and any photos you like. I can work from what's already on your Google listing to start.",
+  },
+];
 
 // Verbatim from the previous portfolio.
 export const TESTIMONIALS = [
@@ -168,15 +247,40 @@ export const TESTIMONIALS = [
 export const OVERVIEW =
   "In the dynamic realm of software development, my expertise in Python, React.js, and building RESTful APIs fuels innovation. With meticulous debugging skills honed through hands-on experience, I swiftly navigate challenges across the full stack. Versatile and collaborative, I facilitate cohesive teamwork, driving the realization of robust, scalable software solutions that exceed expectations.";
 
-// Verbatim from the previous portfolio.
+// Web work timeline. Coding Temple and Adonai & Kaylee lines are verbatim from the previous portfolio.
 export const EXPERIENCE = [
+  {
+    title: "Five concept sites for local businesses",
+    company: "Duggan's Coffee, Daily Rituals, Santa Cecilia, Massage & Banya Spa, X-Tactics",
+    dates: "November 2026",
+    points: [
+      "Checked each business on Google Maps and on its current site, then built a concept that fixes what was costing them customers.",
+      "Online ordering with pickup times for the three cafés; clear booking paths for the spa and the gym.",
+    ],
+  },
+  {
+    title: "Concept redesign",
+    company: "Yes Organic Boutique & Spa",
+    dates: "October 2026 - November 2026",
+    points: [
+      "Multi-page Next.js site with a 3D hero, a Book Now chooser for the spa and nail boutique, and a 97-product shop page.",
+    ],
+  },
+  {
+    title: "Website & Shopify theme",
+    company: "Sacred Creations",
+    dates: "October 2026 - Present",
+    points: [
+      "Designed and built the Liquid Gold site around the brand's own photography, with a drag-to-turn bottle viewer.",
+      "Ported it to a custom Shopify theme that now runs the live store.",
+    ],
+  },
   {
     title: "Software Engineer Intern",
     company: "Coding Temple",
     dates: "February 2024 - Present",
     points: [
       "Developed and maintained robust, scalable web applications utilizing a full stack of technologies including HTML, Python, React, and Flask.",
-      "Leveraged Python to design and implement RESTful APIs, facilitating communication between the front-end and back-end systems.",
       "Created dynamic and responsive UIs using React, focusing on enhancing user engagement and interaction, while implementing server-side logic and routing using Flask, ensuring smooth data flow and efficient request handling.",
     ],
   },
@@ -184,22 +288,7 @@ export const EXPERIENCE = [
     title: "Facilitator | CEO",
     company: "Adonai & Kaylee | Holistic Wellness",
     dates: "July 2022 - Present",
-    points: [
-      "Juggled multiple roles to ensure the seamless operation of the establishment.",
-      "Focused on client satisfaction, I oversaw operations, led teams, and formed strategic partnerships.",
-      "Enhanced our digital presence through website development, optimizing user experience and operations.",
-      "Honed my skills in project management, problem-solving, and adaptability.",
-    ],
-  },
-  {
-    title: "Case Analyst II",
-    company: "Cognosante MVH, LLC",
-    dates: "January 2018 - August 2022",
-    points: [
-      "Identifying and remediating consumer data issues related to health insurance exchange coverage.",
-      "Apply appropriate research and technical knowledge to resolve outstanding issues in a timely and accurate manner.",
-      "Responsible for making outbound calls to gather additional information as well as inform the consumer of the disposition of their care.",
-    ],
+    points: ["Enhanced our digital presence through website development, optimizing user experience and operations."],
   },
 ];
 
